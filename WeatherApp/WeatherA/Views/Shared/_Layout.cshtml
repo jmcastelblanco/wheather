@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-timepicker.css" rel="stylesheet" />
+    <link href="~/Content/MvcBootstrapTimepicker.css" rel="stylesheet" />
+
+    <script src="~/Content/jquery-1.12.4.js"></script>
+    <script src="~/Content/jquery.dataTables.min.js"></script>
+    <script src="~/Content/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/dataTables.responsive.min.js"></script>
+    <script src="~/Content/responsive.bootstrap.min.js"></script>
+
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/bootstrap-timepicker.js"></script>
+    <script src="~/Content/MvcBootstrapTimepicker.js"></script>
+    <script>
+
+
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "language": {
+                //"lengthMenu": "Mostrar _MENU_ registros por pagina",
+                "lengthMenu": "_MENU_ registros por pagina",
+                "sSearch": "Filtrar",
+                "sProcessing": "Procesando...",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+            }
+        });
+        $('.dataTables_filter input').addClass('form-control').attr('placeholder', 'Buscar...');
+    });
+    </script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Departamentos", "Index", "Departments")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+    <script src="signalr/hubs"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.3.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WeatherA.Class.MessagesView>
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.obsTimeUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.humidityHigh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.humidityLow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.humidityAvg)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.obsTimeUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.humidityHigh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.humidityLow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.humidityAvg)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.4.1.js"></script>
+    <script src="signalr/hubs"></script>
+
+
+    <div id="container"></div>
+    <script type="text/javascript">
+        $(function () {
+            // Declare a proxy to reference the hub.
+            var notifications = $.connection.messagesHub;
+
+            //debugger;
+            // Create a function that the hub can call to broadcast messages.
+            notifications.client.updateMessages = function () {
+                getAllMessages()
+
+            };
+            // Start the connection.
+            $.connection.hub.logging = true;
+            $.connection.hub.start().done(function () {
+                $('#alert_placeholder').html('<div class="alert alert-success"><a class="close" data-dismiss="alert">×</a><span>Conexion exitosa</span></div>')
+                getAllMessages();
+            }).fail(function (e) {
+                alert(e);
+            });
+        });
+
+
+        function getAllMessages() {
+            var tbl = $('#messagesTable');
+            $.ajax({
+                url: '/Home/GetMessages',
+                contentType: 'application/html ; charset:utf-8',
+                type: 'GET',
+                dataType: 'html',
+                success: function (result) {
+                    tbl.empty().append(result);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>-->

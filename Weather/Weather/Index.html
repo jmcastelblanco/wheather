@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.4.1.js"></script>
+    <script src="signalr/hubs"></script>
+
+
+    <div id="container"></div>
+
+    <script>
+        var WeatherHubProxy = $.connection.chat;
+
+        $.connection.hub.start().done(function () {
+           WeatherHubProxy.server.UpdateInfoWeather
+        });
+    </script>
+
+</body>
+</html>
